@@ -1,5 +1,6 @@
 import express from "express";
 import { AppDataSource } from "./modules/database/data-source";
+import { ProductController } from "./modules/product/product.controller";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -7,9 +8,7 @@ const port = process.env.PORT || 3000;
 AppDataSource
   .initialize()
   .then(() => {
-    app.get("/", (req, res) => {
-      res.send("Hello World with Express and TypeORM!");
-    });
+    app.use('/', ProductController)
 
     app.listen(port, () => {
       console.log(`Server running on port ${port}`);
