@@ -11,9 +11,8 @@ export const DATA_SOURCE_CONFIG: DataSourceOptions = {
   ssl: useSSL,
   extra: useSSL
     ? {
-        ssl: {
-          rejectUnauthorized: false,
-        },
+        ssl: true,
+        tls: true,
       }
     : {},
   synchronize: true,
